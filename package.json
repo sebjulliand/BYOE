@@ -26,8 +26,28 @@
         "title": "%Run CL Command%",
         "enablement": "code-for-ibmi:connected",
         "category": "BYOE"
+      },
+      {
+        "command": "byoe.displayFileDescription",
+        "title": "%Display File Description%",
+        "enablement": "code-for-ibmi:connected",
+        "category": "BYOE"
       }
-    ]
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "byoe.displayFileDescription",
+          "when": "never"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "byoe.displayFileDescription",
+          "when": "view === objectBrowser && (viewItem =~ /^object\\.file/ || viewItem =~ /^SPF/)"
+        }
+      ]
+    }
   },
   "scripts": {
     "nls": "npx @vscode/l10n-dev export --outDir ./l10n ./src",
