@@ -1,6 +1,7 @@
 import { ObjectItem } from "@halcyontech/vscode-ibmi-types";
 import vscode, { l10n } from "vscode";
 import { code4i } from "./extension";
+import { openOutput } from "./utils";
 
 export async function runCLCommand() {
   //Show input box so the user can enter a command
@@ -28,19 +29,7 @@ export async function displayFileDescription(item: ObjectItem) {
   const file = item.object;
   const result = await code4i.instance.getConnection().runCommand({ command: `DSPFD FILE(${file.library}/${file.name}) OUTPUT(*PRINT) FILEATR(*ALL)` });
   if (result.code === 0) {
-    code4i.customUI()
-      .addHeading(l10n.t("{0}/{1} file description", file.library, file.name), 2)
-      .addParagraph(`<pre>${result.stdout}</pre>`)
-      .setOptions({
-        fullPage: true,
-        css: /* css */ `
-          pre{
-            background-color: transparent;
-          }
-        `
-      })
-      .loadPage(`${file.library}/${file.name} file description`);
-
+    openOutput(l10n.t("{0}/{1} file description", file.library, file.name), result.stdout);
   }
   else {
     if (await vscode.window.showErrorMessage(l10n.t("Could not get description for file {0}/{1}", file.library, file.name), l10n.t("Open output"))) {
