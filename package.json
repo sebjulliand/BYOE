@@ -24,6 +24,7 @@
       {
         "command": "byoe.runCLCommand",
         "title": "%Run CL Command%",
+        "enablement": "code-for-ibmi:connected",
         "category": "BYOE"
       }
     ]
