@@ -1,5 +1,6 @@
 import { CodeForIBMi } from '@halcyontech/vscode-ibmi-types';
 import * as vscode from 'vscode';
+import { runCLCommand } from './commands';
 
 export let code4i: CodeForIBMi;
 
@@ -13,8 +14,7 @@ export async function activate(context: vscode.ExtensionContext) {
 	}
 
 	context.subscriptions.push(
-		
-		vscode.commands.registerCommand('template.helloWorld', () => vscode.window.showInformationMessage(vscode.l10n.t('Hello')))
+		vscode.commands.registerCommand("byoe.runCLCommand", runCLCommand)
 	);
 
 	console.log("Extension activated");

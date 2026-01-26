@@ -22,8 +22,9 @@
   "contributes": {
     "commands": [
       {
-        "command": "template.helloWorld",
-        "title": "%hello.world%"
+        "command": "byoe.runCLCommand",
+        "title": "%Run CL Command%",
+        "category": "BYOE"
       }
     ]
   },
