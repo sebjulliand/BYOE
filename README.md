@@ -1,2 +1,2 @@
-# VS Code Template extension
-This is my template to create a VS Code extension that uses [Code for IBM i]([https://](https://github.com/codefori/vscode-ibmi))
+# Build You Own Extension !
+This is a support for the Buid Your Own Extension workshop - it extends [Code for IBM i]([https://](https://github.com/codefori/vscode-ibmi))
