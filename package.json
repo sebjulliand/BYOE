@@ -31,7 +31,19 @@
         "command": "byoe.displayFileDescription",
         "title": "%Display File Description%",
         "enablement": "code-for-ibmi:connected",
+        "category": "BYOE"      
+      },
+      {
+        "command": "byoe.displayFileColumns",
+        "title": "%Display File Columns%",
+        "enablement": "code-for-ibmi:connected",
         "category": "BYOE"
+      }
+    ],
+    "submenus": [
+      {
+        "id": "byoe.objects",
+        "label": "%Build Your Own Extension%"
       }
     ],
     "menus": {
@@ -41,10 +53,20 @@
           "when": "never"
         }
       ],
-      "view/item/context": [
+      "byoe.objects": [
         {
           "command": "byoe.displayFileDescription",
           "when": "view === objectBrowser && (viewItem =~ /^object\\.file/ || viewItem =~ /^SPF/)"
+        },
+        {
+          "command": "byoe.displayFileColumns",
+          "when": "view === objectBrowser && (viewItem =~ /^object\\.file/ || viewItem =~ /^SPF/)"
+        }
+      ],
+      "view/item/context": [
+        {
+          "submenu": "byoe.objects",
+          "when": "view === objectBrowser"
         }
       ]
     }
