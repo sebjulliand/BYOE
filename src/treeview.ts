@@ -59,7 +59,7 @@ export abstract class TreeNode extends vscode.TreeItem {
  * A boilerplate class to easily create a new Tree View.
  * The `refresh()` method should be called by a command whose name should be passed onto the {@link TreeNode} constructor.
  */
-export abstract class TreeNodeDataProvider<T> implements vscode.TreeDataProvider<TreeNode> {
+export abstract class TreeNodeDataProvider implements vscode.TreeDataProvider<TreeNode> {
   private readonly emitter = new vscode.EventEmitter<TreeNode | TreeNode[] | undefined | null | void>();
   readonly onDidChangeTreeData = this.emitter.event;
 

@@ -1,6 +1,7 @@
 import { CodeForIBMi } from '@halcyontech/vscode-ibmi-types';
 import * as vscode from 'vscode';
 import { browseSpooledFiles, displayFileColumns, displayFileDescription, runCLCommand } from './commands';
+import { initializeJobBrowser } from './jobBrowser';
 
 export let code4i: CodeForIBMi;
 
@@ -19,6 +20,8 @@ export async function activate(context: vscode.ExtensionContext) {
 		vscode.commands.registerCommand("byoe.displayFileColumns", displayFileColumns),
 		vscode.commands.registerCommand("byoe.browseSpooledFiles", browseSpooledFiles)
 	);
+
+	initializeJobBrowser(context);
 
 	console.log("Extension activated");
 }

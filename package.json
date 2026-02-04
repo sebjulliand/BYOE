@@ -31,7 +31,7 @@
         "command": "byoe.displayFileDescription",
         "title": "%Display File Description%",
         "enablement": "code-for-ibmi:connected",
-        "category": "BYOE"      
+        "category": "BYOE"
       },
       {
         "command": "byoe.displayFileColumns",
@@ -43,6 +43,13 @@
         "command": "byoe.browseSpooledFiles",
         "title": "%Browse Spooled Files%",
         "enablement": "code-for-ibmi:connected",
+        "category": "BYOE"      
+      },
+      {
+        "command": "jobBrowser.refresh",
+        "title": "%Refresh%",
+        "enablement": "code-for-ibmi:connected",
+        "icon":"$(refresh)",
         "category": "BYOE"
       }
     ],
@@ -52,6 +59,25 @@
         "label": "%Build Your Own Extension%"
       }
     ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "byoe-container",
+          "icon": "$(vr)",
+          "title": "B.Y.O.E."
+        }
+      ]
+    },
+    "views": {
+      "byoe-container": [
+        {
+          "id": "byoe.jobBrowser",
+          "name": "%IBM i Job Browser%",
+          "icon": "",
+          "when": "code-for-ibmi:connected"
+        }
+      ]
+    },
     "menus": {
       "commandPalette": [
         {
@@ -71,6 +97,13 @@
         {
           "command": "byoe.displayFileColumns",
           "when": "view === objectBrowser && (viewItem =~ /^object\\.file/ || viewItem =~ /^SPF/)"
+        }
+      ],
+      "view/title": [
+        {
+          "command": "jobBrowser.refresh",
+          "group": "navigation@99",
+          "when": "view === byoe.jobBrowser"
         }
       ],
       "view/item/context": [
