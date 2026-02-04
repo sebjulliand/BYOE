@@ -38,6 +38,12 @@
         "title": "%Display File Columns%",
         "enablement": "code-for-ibmi:connected",
         "category": "BYOE"
+      },
+      {
+        "command": "byoe.browseSpooledFiles",
+        "title": "%Browse Spooled Files%",
+        "enablement": "code-for-ibmi:connected",
+        "category": "BYOE"
       }
     ],
     "submenus": [
@@ -50,6 +56,10 @@
       "commandPalette": [
         {
           "command": "byoe.displayFileDescription",
+          "when": "never"
+        },
+        {
+          "command": "byoe.displayFileColumns",
           "when": "never"
         }
       ],
